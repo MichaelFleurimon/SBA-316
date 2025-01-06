@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const addTodoBtn = document.getElementById("add-todo");
     const todoList = document.getElementById("todo-list");
     const todoColor = document.getElementById("change-color");
+  
     // Function to create a new to-do item
     function createTodoItem(taskText) {
       const li = document.createElement("li");
@@ -11,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
       span.textContent = taskText;
       const buttonsDiv = document.createElement("div");
       buttonsDiv.classList.add("todo-buttons");
+  
       // Remove button
       const removeBtn = document.createElement("button");
       removeBtn.textContent = "Remove";
@@ -18,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
       removeBtn.addEventListener("click", () => {
         li.remove();
       });
+  
       // Move up button
       const moveUpBtn = document.createElement("button");
       moveUpBtn.textContent = "up";
@@ -27,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
           todoList.insertBefore(li, li.previousElementSibling);
         }
       });
+  
       // Move down button
       const moveDownBtn = document.createElement("button");
       moveDownBtn.textContent = "down";
@@ -36,20 +40,17 @@ document.addEventListener("DOMContentLoaded", () => {
           todoList.insertBefore(li.nextElementSibling, li);
         }
       });
-      // change the color of the header add butons
-      function changeColor(){
-        head = document.getElementById("header");
-        head.style.background = read;
-        
-      }
+  
       // Append buttons to the container
       buttonsDiv.appendChild(moveUpBtn);
       buttonsDiv.appendChild(moveDownBtn);
       buttonsDiv.appendChild(removeBtn);
       li.appendChild(span);
       li.appendChild(buttonsDiv);
-     return li;
+  
+      return li;
     }
+  
     // Add new task
     addTodoBtn.addEventListener("click", () => {
       const taskText = todoInput.value.trim();
@@ -59,11 +60,18 @@ document.addEventListener("DOMContentLoaded", () => {
         todoInput.value = "";
       }
     });
+  
     // Enter to add a task
     todoInput.addEventListener("keypress", (e) => {
       if (e.key === "Enter") {
         addTodoBtn.click();
       }
     });
-    todoColor.addEventListener("click",changeColor());
+  
+    // Add event listener to the Change Color button, no fr this time because it didn't work before
+    todoColor.addEventListener("click",() =>{
+      document.body.classList.toggle("dark")
+      //console.log("and I ran"); made this to test the listener was actually working
+    })
   });
+  

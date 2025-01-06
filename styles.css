@@ -15,11 +15,13 @@ body {
     main {
     margin-top: 20px;
     }
+    body.dark{
+    background-color: #121512;
+    }
     #todo-app {
     background: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
     #todo-input {
     width: calc(100% - 70px);
@@ -47,6 +49,9 @@ body {
     justify-content: space-between;
     align-items: center;
     }
+    
+    
+    
     
     
     
